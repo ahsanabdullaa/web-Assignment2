@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    .row 
+        .col-sm-8
+            h1=title 
+        .col-sm-4 
+            a(href="/cars/add",class="btn btn-success") Add New Record
+    table.table
+        thead 
+            tr 
+                th Name
+                th Price
+                th Model
+        tbody 
+            each car in cars 
+                tr 
+                    td=car.name
+                    td=car.price
+                    td=car.model
+                    td 
+                        a(href="/cars/delete/"+car._id,class="btn btn-danger") <i class="bi bi-trash"></i>
+                        a(href="/cars/edit/"+car._id,class="btn btn-warning") <i class="bi bi-pencil"></i>
+                        a(href="/cars/cart/"+car._id,class="btn btn-info") Add to Cart <i class="bi bi-bag"></i>

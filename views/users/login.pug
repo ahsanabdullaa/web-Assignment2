@@ -1,0 +1,12 @@
+extends ../layout
+
+block content 
+    h1 signup
+    form(action="/users/login",method="post")
+        .form-group    
+            label(for="email") Email
+            input#price(type="text",class="form-control",name="email", value="ahsan@gmail.com")
+        .form-group
+            label(for="password") Password
+            input#model(type="password",class="form-control",name="password", value="ahsan")  
+        input(type="submit", class="btn btn-info", value="Log In")

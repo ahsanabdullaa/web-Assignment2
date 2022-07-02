@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1 My Shopping Cart
+  -var total=0;
+  -var quantity=0;
+  -var count = 1;
+    table.table 
+      thead 
+        th Sr.No
+        th Name
+        th price
+        th Model
+        th Action
+      tbody 
+        each item in cart
+          -total += Number(item.price);
+          tr
+            td=count++
+            td=item.name
+            td=item.price
+            td=item.model
+            td 
+              a(href="/cars/cart/remove/"+item._id, class="btn btn-danger") Remove Item 
+      tfoot 
+        tr 
+          td Total Price
+          td
+          td=total
+        tr 
+          td Quantity
+          td
+          td=quantity=cart.length
